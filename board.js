@@ -3,14 +3,14 @@ import { blackSquareMaterial, squareGeometry, whiteSquareMaterial } from './glob
 import { square } from './square'
 
 class board{
-  constructor(translate){
+  constructor(translate,size){
     this.squareList = []
     this.squares = new THREE.Group()
 
-    for(let col = 0, isStartLight = false; col < 8; col++, isStartLight = !isStartLight){
+    for(let col = 0, isStartLight = false; col < size; col++, isStartLight = !isStartLight){
       let column = String.fromCharCode(col+97)
       let obj
-      for(let r = 0, is_light = isStartLight; r<8; r++, is_light = !is_light){
+      for(let r = 0, is_light = isStartLight; r<size; r++, is_light = !is_light){
         let row = r+1
         is_light ?
           obj = new THREE.Mesh(squareGeometry,whiteSquareMaterial)

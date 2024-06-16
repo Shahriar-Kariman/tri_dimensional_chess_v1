@@ -37,8 +37,8 @@ const stars = new THREE.Points(starsGemoetry,starsMaterial)
 stars.name = "stars"
 scene.add(stars)
 
-// board
-const b1 = new board(translate)
+// boards
+const b1 = new board(translate,4)
 scene.add(b1.squares)
 
 export {
