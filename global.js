@@ -2,9 +2,28 @@ import * as THREE from 'three'
 
 // To translate a sqaure to a position use also in pieces
 const translate = (col,row)=>{
-  const x = -('a'.charCodeAt(0) - col.toLowerCase().charCodeAt(0)+4)
-  const z = -(row-4)
+  const x = -('a'.charCodeAt(0) - col.toLowerCase().charCodeAt(0)+2)
+  const z = -(row-2)
   return {x,z}
+}
+
+const neutral_translate = (col,row)=>{
+  row-=3
+  let {x,z} = translate(col,row)
+  let y = 0
+  return {x,z,y}
+}
+const black_translate = (col,row)=>{
+  let {x,z} = translate(col,row)
+  z += 3
+  let y = 3
+  return {x,z,y}
+}
+const white_translate = (col,row)=>{
+  let {x,z} = translate(col,row)
+  z += 3
+  let y = -3
+  return {x,z,y}
 }
 
 const squareGeometry = new THREE.BoxGeometry(1, 0.2, 1)
@@ -36,7 +55,9 @@ directionalLight.position.y = 2
 lights.add(ambientLight,directionalLight)
 
 export {
-  translate,
+  neutral_translate,
+  black_translate,
+  white_translate,
   squareGeometry,
   whiteSquareMaterial,
   blackSquareMaterial,

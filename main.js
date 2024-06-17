@@ -23,9 +23,9 @@ window.addEventListener('resize', ()=>{
 
 // camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width/sizes.height)
-camera.position.z = 4
+camera.position.z = 9
 camera.position.y = 7
-camera.rotation.x = -Math.PI*3/4
+camera.position.x = 4
 scene.add(camera)
 
 // canvas

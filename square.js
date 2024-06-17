@@ -10,9 +10,10 @@ class square{
     this.square_notation = new notation(column,row)
     this.is_light = is_light
     this.object = object
-    const {x,z} = translate(column, row)
+    const {x,z,y} = translate(column, row)
     this.object.position.x = x
     this.object.position.z = z
+    this.object.position.y = y
     this.object.name = column+row
   }
 }
