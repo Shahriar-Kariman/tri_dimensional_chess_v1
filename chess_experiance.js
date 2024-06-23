@@ -3,6 +3,7 @@ import { board } from './board'
 import { lights, neutral_translate, black_translate, white_translate } from './global'
 import { camera, renderer } from './main'
 import { notation } from './square'
+import { attack_board } from './attack_board'
 
 const scene = new THREE.Scene()
 
@@ -42,6 +43,10 @@ const b3 = new board(black_translate,4,5) // black board
 const b2 = new board(neutral_translate,4,3) // neutral board
 const b1 = new board(white_translate,4,1) // white board
 scene.add(b1.squares, b2.squares, b3.squares)
+
+// attackboards
+const a_b1 = new attack_board(white_translate,-1,1,new notation('d',1),true)
+scene.add(a_b1.squares)
 
 export {
   scene,

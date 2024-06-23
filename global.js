@@ -10,7 +10,7 @@ const translate = (col,row)=>{
   else{
     x = col.toLowerCase().charCodeAt(0)-'a'.charCodeAt(0)-2
   }
-  const z = 2-row
+  let z = 2-row
   return {x,z}
 }
 
@@ -30,6 +30,12 @@ const white_translate = (col,row)=>{
   let {x,z} = translate(col,row)
   z += 3
   let y = -3
+  return {x,z,y}
+}
+
+const attack_board_translate = (col,row)=>{
+  let {x,z} = translate(col,row)
+  let y = 0
   return {x,z,y}
 }
 
@@ -65,6 +71,7 @@ export {
   neutral_translate,
   black_translate,
   white_translate,
+  attack_board_translate,
   squareGeometry,
   whiteSquareMaterial,
   blackSquareMaterial,
