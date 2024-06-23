@@ -2,8 +2,15 @@ import * as THREE from 'three'
 
 // To translate a sqaure to a position use also in pieces
 const translate = (col,row)=>{
-  const x = -('a'.charCodeAt(0) - col.toLowerCase().charCodeAt(0)+2)
-  const z = -(row-2)
+  const col_code = col.toLowerCase().charCodeAt(0)
+  let x = 0
+  if(col_code == 'z'.charCodeAt(0)){
+    x = -3
+  }
+  else{
+    x = col.toLowerCase().charCodeAt(0)-'a'.charCodeAt(0)-2
+  }
+  const z = 2-row
   return {x,z}
 }
 
