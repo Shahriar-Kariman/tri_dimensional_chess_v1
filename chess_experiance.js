@@ -45,7 +45,7 @@ const b1 = new board(white_translate,4,1) // white board
 scene.add(b1.squares, b2.squares, b3.squares)
 
 // attackboards
-const a_b1 = new attack_board(white_translate,-1,1,new notation('d',1),true)
+const a_b1 = new attack_board(white_translate,-1,1,true,new notation('d',1),true)
 scene.add(a_b1.squares)
 
 export {
