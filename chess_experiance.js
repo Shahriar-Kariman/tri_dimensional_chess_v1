@@ -45,10 +45,10 @@ const b1 = new board(white_translate,4,1) // white board
 scene.add(b1.squares, b2.squares, b3.squares)
 
 // attackboards
-const a_b1 = new attack_board(white_translate,false,true,true,new notation('d',1),true)
-const a_b2 = new attack_board(white_translate,false,false,true,new notation('a',1),true)
-const a_b3 = new attack_board(black_translate,true,true,true,new notation('d',8),false)
-const a_b4 = new attack_board(black_translate,true,false,true,new notation('a',8),false)
+const a_b1 = new attack_board(white_translate,b1.cornerSquares[0],true,true)
+const a_b2 = new attack_board(white_translate,b1.cornerSquares[2],true,true)
+const a_b3 = new attack_board(black_translate,b3.cornerSquares[1],true,false)
+const a_b4 = new attack_board(black_translate,b3.cornerSquares[3],true,false)
 scene.add(
   a_b1.squares,a_b2.squares,
   a_b3.squares,a_b4.squares

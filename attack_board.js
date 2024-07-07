@@ -15,23 +15,25 @@ const loop_condition_helper = (val,dependent_val)=>{
 }
 
 class attack_board{
-  constructor(board_translate,f_b,r_l,u_d,ph_square,original_owner){
+  constructor(board_translate,ph_square,u_d,original_owner){
     this.squareList = []
     this.squares = new THREE.Group()
     this.phase_square = ph_square // this is the the corner square notation from a fixed board
     this.original_owner = original_owner // true for white false for black
-
+    this.createBoard(ph_square.f_b,ph_square.r_l,u_d,ph_square.is_light,board_translate)
+  }
+  createBoard(f_b,r_l,u_d,parent_color,board_translate) {
     forward_backward = f_b
     let f_factor = forward_backward ? 1 : -1
     right_left = r_l
     let r_factor = right_left ? 1 : -1
     up_down = u_d
     
-    for (let col = 0, isStartLight = this.original_owner; loop_condition_helper(col,right_left); col+=r_factor, isStartLight = !isStartLight) {
-      let column = String.fromCharCode(this.phase_square.column.charCodeAt(0)+col)
+    for (let col = 0, isStartLight = parent_color; loop_condition_helper(col,right_left); col+=r_factor, isStartLight = !isStartLight) {
+      let column = String.fromCharCode(this.phase_square.square_notation.column.charCodeAt(0)+col)
       let obj
       for(let r = 0, is_light = isStartLight; loop_condition_helper(r,forward_backward); r+=f_factor, is_light = !is_light){
-        let temp_r = r+this.phase_square.row
+        let temp_r = r+this.phase_square.square_notation.row
         is_light ?
           obj = new THREE.Mesh(squareGeometry,whiteSquareMaterial)
           :

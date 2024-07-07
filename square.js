@@ -18,7 +18,19 @@ class square{
   }
 }
 
+class corner_square extends square{
+  constructor(
+    column, row, is_light, object, translate,
+    f_b,r_l
+  ){
+    super(column,row,is_light,object,translate)
+    this.f_b = f_b
+    this.r_l = r_l
+  }
+}
+
 export {
   notation,
-  square
+  square,
+  corner_square
 }
